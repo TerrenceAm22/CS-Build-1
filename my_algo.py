@@ -36,7 +36,7 @@ def entropy_of_one_division(division):
 def get_entropy(y_predict, y_real):
     """
     Returns entropy of a split
-    y_predict is the split decision, True/Fasle, and y_true can be multi class
+    y_predict is the split decision, True/False, and y_true can be multi class
     """
     if len(y_predict) != len(y_real):
         print('They have to be the same length')
@@ -122,6 +122,7 @@ class DecisionTreeClassifier(object):
 
 from sklearn.datasets import load_iris
 from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
 from pprint import pprint
 
 iris = load_iris()
@@ -129,12 +130,15 @@ iris = load_iris()
 x = iris.data
 y = iris.target
 
-clf = DecisionTreeClassifier(max_depth=7)
-m = clf.fit(x, y)
-labeL_test = clf.predict(x)
+X_train,X_test,y_train,y_test=train_test_split(x,y,test_size=0.2, random_state=123)
 
-acc = accuracy_score(labeL_test, y)
+clf = DecisionTreeClassifier(max_depth=7)
+m = clf.fit(X_train, y_train)
+label_test = clf.predict(X_test)
+
+acc = accuracy_score(y_test,label_test)
+
 print("accuracy score", acc)
 
-# pprint(labeL_test)
+print(label_test)
 
