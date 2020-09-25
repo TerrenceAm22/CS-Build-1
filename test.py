@@ -9,7 +9,7 @@ x = iris.data
 y = iris.target
 
 
-clf = DecisionTreeClassifier(max_depth = 7)
+clf = DecisionTreeClassifier(max_depth = 7, max_features = 2)
 
 m = clf.fit(x, y)
 labeL_test = clf.predict(x)
@@ -17,5 +17,5 @@ labeL_test = clf.predict(x)
 acc = accuracy_score(labeL_test, y)
 print("Accuracy Score:  ", acc)
 
-# print(labeL_test)
+print("Predicted: ", labeL_test)
 

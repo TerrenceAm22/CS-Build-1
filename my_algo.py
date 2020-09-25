@@ -17,7 +17,7 @@ def entropy_cal(c1, c2):
         return 0
     return entropy_func(c1, c1+c2) + entropy_func(c2, c1+c2)
 
-# get the entropy of one big circle showing above
+# get entropy
 def entropy_of_one_division(division): 
     """
     Returns entropy of a divided group of data
@@ -122,7 +122,6 @@ class DecisionTreeClassifier(object):
 
 from sklearn.datasets import load_iris
 from sklearn.metrics import accuracy_score
-from sklearn.tree import DecisionTreeClassifier
 from pprint import pprint
 
 iris = load_iris()
@@ -138,3 +137,4 @@ acc = accuracy_score(labeL_test, y)
 print("accuracy score", acc)
 
 # pprint(labeL_test)
+
