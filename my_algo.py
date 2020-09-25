@@ -121,6 +121,8 @@ class DecisionTreeClassifier(object):
             return cur_layer.get('val')
 
 from sklearn.datasets import load_iris
+from sklearn.metrics import accuracy_score
+from sklearn.tree import DecisionTreeClassifier
 from pprint import pprint
 
 iris = load_iris()
@@ -130,6 +132,9 @@ y = iris.target
 
 clf = DecisionTreeClassifier(max_depth=7)
 m = clf.fit(x, y)
-m = clf.predict(x)
+labeL_test = clf.predict(x)
 
-pprint(m)
+acc = accuracy_score(labeL_test, y)
+print("accuracy score", acc)
+
+# pprint(labeL_test)
